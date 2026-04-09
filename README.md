@@ -1,5 +1,5 @@
 # Public API Playground
-live link - npx plugins add vercel/vercel-plugin
+live link - (https://public-api-playground-pink.vercel.app/)
 
 A modern, responsive web application that integrates **7 public APIs** into a single, beautifully designed interface. Built with HTML, CSS, and Vanilla JavaScript.
 
