@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public API Playground</title>
+    <meta name="description" content="A comprehensive playground for 7 different public APIs, featuring a modern glassmorphism UI.">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob shape1"></div>
+        <div class="blob shape2"></div>
+        <div class="blob shape3"></div>
+    </div>
+
+    <header class="glass-header">
+        <div class="header-content">
+            <h1><i class="fa-solid fa-code-branch"></i> Public API Playground</h1>
+            <button id="theme-toggle" class="icon-btn" title="Toggle Theme" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <!-- 1. Dog Finder -->
+            <div class="card glass-card" id="dog-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-dog"></i> Dog Finder</h2>
+                </div>
+                <div class="card-body">
+                    <div class="media-container" id="dog-media">
+                        <img src="" alt="A random dog" id="dog-img" class="hidden">
+                        <div class="placeholder active"><i class="fa-solid fa-image"></i></div>
+                        <div class="loader hidden"></div>
+                    </div>
+                    <div class="info-group">
+                        <span class="label">Breed</span>
+                        <span class="value" id="dog-breed">-</span>
+                    </div>
+                    <p class="error-msg hidden" id="dog-error"></p>
+                </div>
+                <div class="card-action">
+                    <button id="btn-dog" class="primary-btn">Get Dog</button>
+                    <button id="btn-dog-copy" class="secondary-btn icon-btn" title="Copy Image URL" aria-label="Copy Dog Image">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. Cat Finder -->
+            <div class="card glass-card" id="cat-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-cat"></i> Cat Finder</h2>
+                </div>
+                <div class="card-body">
+                    <div class="media-container" id="cat-media">
+                        <img src="" alt="A random cat" id="cat-img" class="hidden">
+                        <div class="placeholder active"><i class="fa-solid fa-image"></i></div>
+                        <div class="loader hidden"></div>
+                    </div>
+                    <p class="error-msg hidden" id="cat-error"></p>
+                </div>
+                <div class="card-action">
+                    <button id="btn-cat" class="primary-btn">Get Cat</button>
+                    <button id="btn-cat-copy" class="secondary-btn icon-btn" title="Copy Image URL" aria-label="Copy Cat Image">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. Bike Finder -->
+            <div class="card glass-card" id="bike-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-motorcycle"></i> Bike Finder</h2>
+                </div>
+                <div class="card-body">
+                    <div class="media-container" id="bike-media">
+                        <img src="" alt="A random bike" id="bike-img" class="hidden">
+                        <div class="placeholder active"><i class="fa-solid fa-image"></i></div>
+                        <div class="loader hidden"></div>
+                    </div>
+                    <div class="info-group">
+                        <span class="label">Photographer</span>
+                        <span class="value" id="bike-photographer">-</span>
+                    </div>
+                    <p class="error-msg hidden" id="bike-error"></p>
+                </div>
+                <div class="card-action">
+                    <button id="btn-bike" class="primary-btn">Get Bike</button>
+                    <button id="btn-bike-copy" class="secondary-btn icon-btn" title="Copy Image URL" aria-label="Copy Bike Image">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4. Random User Profile -->
+            <div class="card glass-card" id="user-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-users"></i> Random User</h2>
+                </div>
+                <div class="card-body user-body">
+                    <div class="loader hidden" id="user-loader"></div>
+                    <div class="content active" id="user-content">
+                        <div class="user-profile">
+                            <img src="https://via.placeholder.com/100/6366f1/ffffff?text=U" alt="User Avatar Placeholder" id="user-avatar" class="avatar">
+                            <div class="user-details">
+                                <h3 id="user-name">John Doe</h3>
+                                <p><i class="fa-solid fa-envelope"></i> <span id="user-email">email@example.com</span></p>
+                                <p><i class="fa-solid fa-globe"></i> <span id="user-country">Country</span></p>
+                                <p><i class="fa-solid fa-calendar"></i> <span id="user-age">Age: -</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="error-msg hidden" id="user-error"></p>
+                </div>
+                <div class="card-action">
+                    <button id="btn-user" class="primary-btn">Get User</button>
+                </div>
+            </div>
+
+            <!-- 5. Posts Explorer -->
+            <div class="card glass-card col-span-2" id="posts-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-signs-post"></i> Posts Explorer</h2>
+                </div>
+                <div class="card-body posts-body">
+                    <div class="loader hidden" id="posts-loader"></div>
+                    <ul class="posts-list" id="posts-list">
+                        <li class="empty-state">Click "Load Posts" to fetch demo posts from JSONPlaceholder.</li>
+                    </ul>
+                    <p class="error-msg hidden" id="posts-error"></p>
+                </div>
+                <div class="card-action">
+                    <button id="btn-posts" class="primary-btn">Load Posts</button>
+                </div>
+            </div>
+
+            <!-- 6. Advice Generator -->
+            <div class="card glass-card" id="advice-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-lightbulb"></i> Advice Generator</h2>
+                </div>
+                <div class="card-body text-body">
+                    <div class="loader hidden" id="advice-loader"></div>
+                    <div class="content active" id="advice-content">
+                        <p class="quote">"Press the button below for some wisdom."</p>
+                    </div>
+                    <p class="error-msg hidden" id="advice-error"></p>
+                </div>
+                <div class="card-action">
+                    <button id="btn-advice" class="primary-btn">Get Advice</button>
+                </div>
+            </div>
+
+            <!-- 7. Activity Suggestion -->
+            <div class="card glass-card" id="activity-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-person-running"></i> Activity Suggestion</h2>
+                </div>
+                <div class="card-body">
+                    <div class="loader hidden" id="activity-loader"></div>
+                    <div class="content active flex-col" id="activity-content">
+                        <h3 id="act-name" class="highlight-text">Need something to do?</h3>
+                        <div class="tags">
+                            <span class="tag"><i class="fa-solid fa-tag"></i> <span id="act-type">Type</span></span>
+                            <span class="tag"><i class="fa-solid fa-user-group"></i> <span id="act-participants">1</span></span>
+                            <span class="tag"><i class="fa-solid fa-gauge-high"></i> <span id="act-difficulty">Easy</span></span>
+                        </div>
+                    </div>
+                    <p class="error-msg hidden" id="activity-error"></p>
+                </div>
+                <div class="card-action">
+                    <button id="btn-activity" class="primary-btn">Get Activity</button>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Global Toast Container -->
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
